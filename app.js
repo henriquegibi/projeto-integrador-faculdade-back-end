@@ -15,15 +15,16 @@ const salvarFrase = async (texto)=>{
 app.post("",(req,res)=>{
     const resposta = salvarFrase(req.body.texto)
     res.send(resposta)
+    console.log("POST requested")
 })
 
 app.get("", async (req,res)=>{
     const lista = await fraseModel.find()
     res.send(lista)
-    console.log("")
+    console.log("GET requested")
 })
 
 app.listen(3000,()=>{
-    console.log("Server is running on http://localhost:3000")
+    console.log("Server is now running")
 })
 module.export = app
